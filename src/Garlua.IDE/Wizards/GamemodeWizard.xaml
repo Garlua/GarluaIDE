@@ -1,0 +1,21 @@
+﻿<Window x:Class="Garlua.IDE.Wizards.GamemodeWizard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New Gamemode" Height="384" Width="596">
+    
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="113,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,10,0,0" HorizontalContentAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="113,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,42,0,0" HorizontalContentAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="113,78,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,74,0,0" HorizontalContentAlignment="Right"/>
+        <Button Content="Create Gamemode" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="113,106,0,0"/>
+    </Grid>
+  
+</Window>

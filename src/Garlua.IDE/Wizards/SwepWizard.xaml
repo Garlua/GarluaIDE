@@ -1,0 +1,213 @@
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Garlua.IDE.Wizards" x:Name="SwepWindow" x:Class="Garlua.IDE.Wizards.SwepWizard"
+        xmlns:garlua="clr-namespace:Garlua.IDE.ViewModel"
+        Background="White">
+    <UserControl.DataContext>
+        <garlua:SwepWizardModel/>
+    </UserControl.DataContext>
+
+    <Grid Margin="0,0,0,0">
+        <GroupBox Header="Information" HorizontalAlignment="Left" VerticalAlignment="Top" Width="268" Margin="10,10,0,0">
+            <StackPanel>
+                <DockPanel Margin="0,3">
+                    <Label Content="Author" Width="75" HorizontalAlignment="Left" />
+                    <TextBox Text="{Binding Path=SwepModel.Author, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}"  />
+                </DockPanel>
+                <DockPanel Margin="0,3">
+                    <Label Content="Contact"  Width="75" HorizontalAlignment="Left"/>
+                    <TextBox Text="{Binding Path=SwepModel.Contact, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                </DockPanel>
+                <DockPanel  Margin="0,3">
+                    <Label Content="Purpose" Width="75" HorizontalAlignment="Left" />
+                    <TextBox Text="{Binding Path=SwepModel.Purpose, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}"/>
+                </DockPanel>
+                <DockPanel Margin="0,3">
+                    <Label Content="Instructions"  Width="75" HorizontalAlignment="Left"/>
+                    <TextBox Height="100" Text="{Binding Path=SwepModel.Instructions, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                </DockPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Options" VerticalAlignment="Top" Margin="283,10,10,0">
+            <StackPanel>
+                <DockPanel Margin="0,3">
+                    <Label Content="Spawnable by"  Width="100" HorizontalAlignment="Left"/>
+                    <CheckBox Content="Players" VerticalAlignment="Center"/>
+                    <CheckBox Content="Admins" VerticalAlignment="Center" Margin="10,0"/>
+                </DockPanel>
+
+                <DockPanel Margin="0,3">
+                    <Label Content="GUI"  Width="100" HorizontalAlignment="Left"/>
+                    <CheckBox Content="Show Crosshairs" VerticalAlignment="Center" IsChecked="{Binding Path=SwepModel.DrawCrosshairs, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}"/>
+                    <CheckBox Content="Show Ammo" VerticalAlignment="Center" IsChecked="{Binding Path=SwepModel.DrawAmmo, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" HorizontalAlignment="Left" Margin="10,0"/>
+                </DockPanel>
+                <DockPanel Margin="0,3">
+                    <Label Content=""  Width="100" HorizontalAlignment="Left"/>
+                    <CheckBox Content="Flip View Model" VerticalAlignment="Center"/>
+                </DockPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Primary" Margin="10,240,10,0" Height="185" VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="709">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.ColumnSpan="1" Grid.Column="0">
+                    <DockPanel Margin="0,3">
+                        <Label Content="Clip Size" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.ClipSize, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Default Clip"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.DefaultClip, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel  Margin="0,3">
+                        <Label Content="Fully Auto" Width="75" HorizontalAlignment="Left" />
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Path=SwepModel.PrimaryWeapon.Automatic, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}"/>
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Ammo"  Width="75" HorizontalAlignment="Left"/>
+                        <ComboBox SelectedValue="{Binding Path=SwepModel.PrimaryWeapon.Ammo, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}">
+                            <ComboBoxItem Content="none" IsSelected="True" />
+                            <ComboBoxItem Content="AR2" />
+                            <ComboBoxItem Content="AlyxGun" />
+                            <ComboBoxItem Content="Pistol" />
+                            <ComboBoxItem Content="SMG1" />
+                            <ComboBoxItem Content="357" />
+                        </ComboBox>
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel Grid.Column ="1" Grid.RowSpan="1" Grid.ColumnSpan="1">
+                    <DockPanel Margin="0,3">
+                        <Label Content="Recoil" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.Recoil, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Damage"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.Damage, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel  Margin="0,3">
+                        <Label Content="Numshots" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.NumberOfShots, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Cone"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.Cone, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.ColumnSpan="1">
+                    <DockPanel Margin="0,3">
+                        <Label Content="Delay" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.Delay, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Sound"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.SoundFile, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel  Margin="0,3">
+                        <Label Content="Tracer Frequency" Width="110" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.TracerFrequency, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Force"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.PrimaryWeapon.Force, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Take ammo per"  Width="110" HorizontalAlignment="Left"/>
+                        <TextBox/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Secondary" Margin="10,430,10,0" Height="198" VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="709">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.ColumnSpan="1" Grid.Column="0">
+                    <DockPanel Margin="0,3">
+                        <Label Content="Clip Size" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.ClipSize, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Default Clip"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.DefaultClip, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel  Margin="0,3">
+                        <Label Content="Fully Auto" Width="75" HorizontalAlignment="Left" />
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Path=SwepModel.SecondaryWeapon.Automatic, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}"/>
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Ammo"  Width="75" HorizontalAlignment="Left"/>
+                        <ComboBox SelectedValue="{Binding Path=SwepModel.SecondaryWeapon.Ammo, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}">
+                            <ComboBoxItem Content="none" IsSelected="True" />
+                            <ComboBoxItem Content="AR2" />
+                            <ComboBoxItem Content="AlyxGun" />
+                            <ComboBoxItem Content="Pistol" />
+                            <ComboBoxItem Content="SMG1" />
+                            <ComboBoxItem Content="357" />
+                        </ComboBox>
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel Grid.Column ="1" Grid.RowSpan="1" Grid.ColumnSpan="1">
+                    <DockPanel Margin="0,3">
+                        <Label Content="Recoil" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.Recoil, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Damage"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.Damage, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel  Margin="0,3">
+                        <Label Content="Numshots" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.NumberOfShots, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Cone"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.Cone, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.ColumnSpan="1">
+                    <DockPanel Margin="0,3">
+                        <Label Content="Delay" Width="75" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.Delay, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Sound"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.SoundFile, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel  Margin="0,3">
+                        <Label Content="Tracer Frequency" Width="110" HorizontalAlignment="Left" />
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.TracerFrequency, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Force"  Width="75" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Path=SwepModel.SecondaryWeapon.Force, RelativeSource={RelativeSource Mode=FindAncestor,  AncestorType=UserControl}}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,3">
+                        <Label Content="Take ammo per"  Width="110" HorizontalAlignment="Left"/>
+                        <TextBox/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <Button Content="Export" HorizontalAlignment="Left" Margin="695,633,0,0" VerticalAlignment="Top" Width="75" Click="ExportTemplate_Click"/>
+        <GroupBox Header="Information" HorizontalAlignment="Left" VerticalAlignment="Top" Width="487" Margin="283,134,0,0" Height="101">
+            <StackPanel>
+                <DockPanel Margin="0,3">
+                    <Label Content="Print Name" Width="75" HorizontalAlignment="Left" />
+                    <TextBox Text="{Binding SwepModel.PrintName, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"  />
+                </DockPanel>
+                <DockPanel Margin="0,3">
+                    <Label Content="Category" Width="75" HorizontalAlignment="Left" />
+                    <TextBox Text="{Binding SwepModel.Category, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"  />
+                </DockPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>
